@@ -1,0 +1,26 @@
+<div class="forum-container">
+    <div class="form-container">
+        <h1 class="message-form-head">Hero Form</h1>
+        <form class="message-form" [formGroup]="messageForm" (submit)="onSubmit()">
+
+            <div class="form-group">
+                <input type="text" id="title" formControlName="title" placeholder="Заголовок"/>
+            </div>
+
+            <div class="form-group">
+                <textarea id="body" formControlName="body" placeholder="Текст сообщения"></textarea>
+            </div>
+
+            <input type="submit" value="Отправить" />
+
+        </form>
+    </div>
+    <div class="messages-container">
+        <div class="messages-count">
+            Количество сообщений: {{messagesList.length}}
+        </div>
+        <div class="messages-list">
+            <message-cmp *ngFor="let messageItem of messagesList" [value]="messageItem"></message-cmp>
+        </div>
+    </div>
+</div>
